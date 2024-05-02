@@ -1,1 +1,16 @@
+# Ignore Python bytecode cache files
 __pycache__/
+
+# Ignore system and editor files
+.vscode/
+*.pyc
+*.pyo
+
+# Ignore local configuration files
+.env
+*.env
+
+# Ignore pytest cache and coverage files
+/.pytest_cache/
+/.pytest_cache/*
+/.coverage
