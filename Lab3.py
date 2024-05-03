@@ -12,27 +12,44 @@ def bubble_sort(arr, sorting_order):
     # Get number of elements in the list
     n = len(arr_result)
 
-    if n < 10:
-        # Traverse through all array elements
-        for i in range(n - 1):
-            # range(n) also work but outer loop will
-            # repeat one time more than needed.
+    if n >= 10:
+        # If more than 10 numbers were entered
+        return 1
 
-            # Last i elements are already in place
-            for j in range(0, n - i - 1):
+    elif n < 10:
+        # If no numbers are entered
+        if n == 0:
+            return 0
+        
+        else:
+            # Traverse through all array elements
+            for i in range(n - 1):
+                # range(n) also work but outer loop will
+                # repeat one time more than needed.
 
-                if sorting_order == SORT_ASCENDING:
-                    if arr_result[j] > arr_result[j + 1]:
-                        arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
+                # Last i elements are already in place
+                for j in range(0, n - i - 1):
+
+                    if sorting_order == SORT_ASCENDING:
+                        #If any value entered on the console is not an integer
+                        if type(arr_result[j]) != int:
+                            return 2
+                        
+                        elif arr_result[j] > arr_result[j + 1]:
+                            arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
 
 
-                elif sorting_order == SORT_DESCENDING:
-                    if arr_result[j] < arr_result[j + 1]:
-                        arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
+                    elif sorting_order == SORT_DESCENDING:
+                        # If any value entered on the console is not an integer
+                        if type(arr_result[j]) != int:
+                            return 2
+                        
+                        elif arr_result[j] < arr_result[j + 1]:
+                            arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
 
-                else:
-                    # Return an empty array
-                    arr_result = []
+                    else:
+                        # Return an empty array
+                        arr_result = []
     else:
         arr_result = -1
 
